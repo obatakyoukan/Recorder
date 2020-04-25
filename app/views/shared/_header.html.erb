@@ -2,7 +2,7 @@
 <% if current_user %>
   <div>
   <ul class="account-menu" >
-    <%= current_user.name %>
+    <%= "ようこそ"+current_user.name+"さん!"  %>
     <%= menu_link_to "ログアウト", :session,
       method: :delete, data: { confirm: "ログアウトしますか?" } %>
   </ul>
@@ -14,7 +14,9 @@
 <nav class="menubar">
   <ul>
     <%= menu_link_to "TOP" , :root %>
-    <%= menu_link_to "ログイン", "#" %>
+    <% if !current_user %>
+     <%= menu_link_to "ログイン", "#" %>
+    <% end %>
     <%= menu_link_to "記録" , "#" %>
   </ul>
 </nav>
