@@ -15,7 +15,7 @@
   <ul>
     <%= menu_link_to "TOP" , :root %>
     <% if !current_user %>
-     <%= menu_link_to "ログイン", "#" %>
+     <%= menu_link_to "新規登録", :users %>
     <% end %>
     <%= menu_link_to "記録" , "#" %>
   </ul>
