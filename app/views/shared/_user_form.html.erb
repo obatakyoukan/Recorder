@@ -1,0 +1,21 @@
+<%= render "shared/errors", obj: @user %>
+<table class="attr">
+  <tr>
+    <th> <%= form.label :name, "ユーザー名" %> </th>
+    <td> <%= form.text_field :name %> </td>
+  </tr>
+
+  <% if !current_user %>
+  <tr>
+    <th> <%= form.label :password, "パスワード" %> </th>
+    <td> <%= form.password_field :password, size:12 %> </td>
+  </tr>
+  <tr>
+    <th> <%= form.label :password_confirmation, "確認用パスワード" %> </th>
+    <td> <%= form.password_field :password_confirmation , size:12 %> </td>
+  </tr>
+ <% end %>
+
+</table>
+
+

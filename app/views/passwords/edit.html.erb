@@ -1,0 +1,33 @@
+<h1>Passwords#edit</h1>
+<p>Find me in app/views/passwords/edit.html.erb</p>
+
+<% @page_title = "パスワードの変更" %>
+<h1> <%= @page_title %> </h1>
+
+<div class="toolbar"><%= link_to "マイアカウントに戻る", :account %> </div>
+
+<%= form_for @user, as: "account", url: :password do |form| %>
+  <%= render "shared/errors", obj: @user %>
+  
+  <table class="attr">
+    <tr>
+      <th> <%= form.label :current_password %> </th>
+      <td> <%= form.password_field :current_password %> </td>
+    </tr>
+    
+    <tr>
+      <th> <%= form.label :password %> </th>
+      <td> <%= form.password_field :password %> </td>
+    </tr>
+
+    <tr>
+      <th> <%= form.label :password_confirmation %> </th>
+      <td> <%= form.password_field :password_confirmation  %> </td>
+    </tr>
+  </table>
+
+
+  <div> <%= form.submit "変更" %> </div>
+<% end %>
+    
+    

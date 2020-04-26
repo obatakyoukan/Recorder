@@ -2,7 +2,7 @@
 <% if current_user %>
   <div>
   <ul class="account-menu" >
-    <%= "ようこそ"+current_user.name+"さん!"  %>
+    <%= menu_link_to "ようこそ"+current_user.name+"さん!" , :account %>
     <%= menu_link_to "ログアウト", :session,
       method: :delete, data: { confirm: "ログアウトしますか?" } %>
   </ul>
