@@ -18,4 +18,6 @@ class AccountsController < ApplicationController
       render "edit"
     end
   end
+
+
 end
