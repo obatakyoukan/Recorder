@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_081838) do
     t.string "title", null: false
     t.string "author"
     t.string "publisher"
-    t.string "published"
+    t.date "published", default: "2020-04-28"
     t.string "memo"
     t.string "file_type", default: "pdf"
     t.string "file_url"

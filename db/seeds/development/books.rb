@@ -10,7 +10,7 @@ memoes = [ "OK" , "Good!", "Bad..." ]
     title: titles[idx],
     author: authors[idx%2],
     publisher: publishers[idx%2],
-    published: publisheds[idx%2],
+    published: Time.current,
     memo: memoes[idx%3],
     file_type: "png",
     file_url: "http://books.google.com/books/content?id=48swDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
