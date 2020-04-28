@@ -1,0 +1,23 @@
+<% @page_title="記録一覧" %>
+<h1> <%= @page_title %> </h1>
+
+<% if @books.present? %>
+  <table class="list" >
+    <tr>
+      <th > 画像 </th>
+      <th>タイトル</th>
+      <th>著者</th>
+      <th>出版社</th>
+    </tr>
+    <% @books.each do |book| %>
+      <tr> 
+        <td> <%= link_to( image_tag(book.file_url) , book )  %></td>
+        <td> <%= book.title %> </td>
+        <td> <%= book.author %> </td>
+        <td> <%= book.publisher %> </td>
+      </tr> 
+    <% end %>
+  </table>
+<% else %>
+  <p> 記録一覧がありません． </p>
+<% end %>

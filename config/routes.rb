@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   get "about" => "top#about", as: "about"
 
   resources :users
+  resources :books
+
   resource :session, only: [:create, :destroy]
   resource :account, only: [:show, :edit, :update ]
   resource :password, only: [:show, :edit, :update]
   resource :erase, only:[:destroy]
+
+
 end

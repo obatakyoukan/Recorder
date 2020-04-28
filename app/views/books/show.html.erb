@@ -1,0 +1,40 @@
+<% @page_title = "詳細" %>
+
+<h1> <%= @page_title %> </h1>
+
+<div class="toolbar"> <%= link_to "編集", [:edit, @book ] %> </div>
+
+
+<%= image_tag @book.file_url  %>
+
+<table class="attr" >
+  <tr>
+    <th> タイトル </th>
+    <td> <%= @book.title %> </td>
+  </tr>
+
+  <tr>
+    <th> 著者 </th>
+    <td> <%= @book.author %> </td>
+  </tr>
+
+  <tr>
+    <th>出版社</th>
+    <td> <%= @book.publisher %> </td>
+  </tr>
+
+  <tr>
+    <th>出版日 </th>
+    <td> <%= @book.published %> </td>
+  </tr>
+
+  <tr>
+    <th> リンク </th>
+    <td> <%= link_to "Link" , @book.link %> </td>
+  </tr>
+</table>
+
+<h2> メモ </h2>
+<%= @book.memo %>
+
+
