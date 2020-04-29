@@ -1,0 +1,42 @@
+<% @page_title = "検索結果" %>
+
+<h1> <%= @page_title %> </h1>
+
+<%= form_tag :book_searches, method: :get, class: "search" do %>
+  <%= text_field_tag "q" , params[:q] %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+
+<% if @books.present? %>
+   ヒット件数: <%= @books.size %> 
+ <table class="list" >
+    <tr>
+      <th> 画像 </th>
+      <th> タイトル</th>
+      <th> 著者 </th>
+      <th> 出版社</th>
+      <th> 出版/発売日 </th>
+      <th> 操作</th>
+    </tr>
+  <% @books.each do |book| %>
+    <tr>
+      <td> <%= image_tag book["volumeInfo"]["imageLinks"]["smallThumbnail"] %></td>
+      <td> <%= book["volumeInfo"]["title"] %></td>
+      <% if book["volumeInfo"]["authors"].present? %>
+        <td> <%= book["volumeInfo"]["authors"].join(' , ') %> </td>
+      <% else%>
+        <td> - </td>
+      <% end %>
+      <td> <%= book["volumeInfo"]["publisher"] %> </td>
+      <td> <%= book["volumeInfo"]["publishedDate"] %></td>
+      <td> <%= link_to "追加" , [:new_search , book] %> </td>
+    </tr>
+  <% end %>
+  
+  </table>
+<% else %>
+
+  検索してください.
+<% end %>
+

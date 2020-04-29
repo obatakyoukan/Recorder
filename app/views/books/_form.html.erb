@@ -19,7 +19,7 @@
   <tr>
     <th> <%= form.label :published, "出版/発売日" %> </th>
     <td> <%= form.date_select :published, 
-      start_year: Time.current.year, end_year: Time.current.year,
+      start_year: 1900 , end_year: Time.current.year,
       use_month_numbers: true %> </td>
   </tr>
 

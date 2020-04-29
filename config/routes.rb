@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get "about" => "top#about", as: "about"
 
   resources :users
-  resources :books
+  resources :books 
+  resources :searches do
+    get "book", on: :collection
+  end
 
   resource :session, only: [:create, :destroy]
   resource :account, only: [:show, :edit, :update ]
