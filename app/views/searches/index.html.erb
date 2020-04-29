@@ -9,7 +9,6 @@
 
 
 <% if @books.present? %>
-   ヒット件数: <%= @books.size %> 
  <table class="list" >
     <tr>
       <th> 画像 </th>
@@ -19,23 +18,40 @@
       <th> 出版/発売日 </th>
       <th> 操作</th>
     </tr>
-  <% @books.each do |book| %>
+    <% @books.each_with_index  do |book,i| %>
     <tr>
-      <td> <%= image_tag book["volumeInfo"]["imageLinks"]["smallThumbnail"] %></td>
-      <td> <%= book["volumeInfo"]["title"] %></td>
+      <% if book["volumeInfo"]["imageLinks"].present? and book["volumeInfo"]["imageLinks"]["smallThumbnail"].present? %>
+        <td> <%= image_tag book["volumeInfo"]["imageLinks"]["smallThumbnail"] %></td>
+      <% else %>
+        <td> No Image </td>
+      <% end %>
+      <% if book["volumeInfo"]["title"].present? %>
+        <td> <%= book["volumeInfo"]["title"] %></td>
+      <% else %>
+        <td> No title </td>
+      <% end %>
       <% if book["volumeInfo"]["authors"].present? %>
         <td> <%= book["volumeInfo"]["authors"].join(' , ') %> </td>
       <% else%>
         <td> - </td>
       <% end %>
-      <td> <%= book["volumeInfo"]["publisher"] %> </td>
-      <td> <%= book["volumeInfo"]["publishedDate"] %></td>
-      <td> <%= link_to "追加" , [:new_search , book] %> </td>
+      <% if book["volumeInfo"]["publisher"].present? %>
+        <td> <%= book["volumeInfo"]["publisher"] %> </td>
+      <% else %>
+        <td> - </td>
+      <% end %>
+      <% if book["volumeInfo"]["publishedDate"].present? %>
+        <td> <%= book["volumeInfo"]["publishedDate"] %></td>
+      <% else %>
+        <td> - </td>
+      <% end %>
+      <td> <%= link_to "追加" ,  :controller => 'searches' , :action => 'edit'  , id: i , q: params[:q]   %> </td>
     </tr>
   <% end %>
   
   </table>
-<% else %>
+
+  <% else %>
 
   検索してください.
 <% end %>

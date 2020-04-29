@@ -1,0 +1,54 @@
+<table class="attr">
+  <%= form.hidden_field :user_id , value: @user.id %>
+
+  <tr>
+    <th> <%= form.label :title, "タイトル" %> </th>
+    <td> <%= form.text_field :title %> </td>
+  </tr>
+
+  <tr>
+    <th> <%= form.label :author, "著者" %> </th>
+    <td> <%= form.text_field :author %> </td>
+  </tr>
+
+  <tr>
+    <th> <%= form.label :publisher, "出版社" %> </th>
+    <td> <%= form.text_field :publisher %> </td>
+  </tr>
+
+  <tr>
+    <th> <%= form.label :published, "出版/発売日" %> </th>
+    <td> <%= form.date_select :published, 
+      start_year: 1900 , end_year: Time.current.year,
+      use_month_numbers: true %> </td>
+  </tr>
+
+  <tr>
+    <th> <%= form.label :link, "リンク" %></th>
+    <td> <%= form.text_field :link %> </td>
+  </tr>
+
+
+  <tr>
+    <th> ファイル形式 </th>
+    <td> 
+      <%= form.radio_button :file_type, "png" %>
+      <%= form.label :file_type1, "PDF" %>
+      <%= form.radio_button :file_type, "png" %>
+      <%= form.label :file_type2, "画像" %>
+    </td>
+  </tr>
+
+  <tr>
+    <th> <%= form.label :file_url, "ファイル" %> </th>
+    <td> <%= form.text_field :file_url %> </td>
+  </tr>
+
+  <tr>
+    <th> <%= form.label :memo, "メモ" %> </th>
+    <td> <%= form.text_field :memo %> </td>
+  </tr>
+
+
+</table>
+
