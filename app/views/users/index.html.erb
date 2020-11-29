@@ -5,6 +5,19 @@ app/view/users/index.html.erbの予定
 このサイトの使い方も追加できたらする.
 -->
 
+<!--
 <%= render "shared/login_form" unless current_user %>
+-->
 
+<!--
 <%= link_to "会員情報の新規登録" , :new_user %>
+-->
+
+<% @page_title = "会員の新規登録" %>
+
+<h1> <%= @page_title %> </h1>
+
+<%= form_for @user do |form| %>
+  <%= render "shared/user_form", form: form %>
+  <div><%= form.submit %> </div>
+<% end %>
